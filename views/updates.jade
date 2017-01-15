@@ -57,23 +57,33 @@ block content
               h1 Update Workout
               form(method="POST", action="/updates")
                 p
-                  input(type="text", placeholder="Id", name="id")
+                  input.form-control(type="text", placeholder="Name", name="workout_name")
                 p
-                  input(type="text", placeholder="First Name", name="first_name")
+                  input.form-control(type="text", placeholder="Youtube Link", name="youtube_link")
                 p
-                  input(type="text", placeholder="Last Name", name="last_name")
-                p
-                  input(type="text", placeholder="Email", name="email")
+                  textarea.form-control(placeholder="Steps", name="steps")
                 P 
-                  input(type="text", placeholder="Contact Number", name="contact")  
-                button(type="submit") Update
+                  input.form-control(type="text", placeholder="Main Muscle Group", name="MMG")  
+                P
+                  input.form-control(type="text", placeholder="Detailed Muscle Group", name="DMG")
+                P
+                  input.form-control(type="text", placeholder="Other Muscle Group", name="OMG")
+                P
+                  input.form-control(type="text", placeholder="Type", name="typetype")
+                P
+                  input.form-control(type="text", placeholder="Mechanics", name="mechanics")
+                P
+                  input.form-control(type="text", placeholder="Equipment", name="equipment")
+                P
+                  input.form-control(type="text", placeholder="Difficulty", name="difficulty")        
+                button(type="submit") Submit
 
                h1 Delete Workout
               form(method="POST", action="/delete")
                 p
                   input(type="text", placeholder="Id", name="id") 
                 button(type="submit") Delete
-              
+       
           // /. ROW
         // /. PAGE INNER
       // /. PAGE WRAPPER

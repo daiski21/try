@@ -81,12 +81,34 @@ block content
                   button(type="submit") Submit
           .row
             .col-md-12
-              .main-box.mb-red
-                h2 Workout List
-                  ul
-                    each workout in workouts
-                      li
-                        a(href='/workout/' + workout._id ) #{workout._id}, #{workout.name}, #{workout.link}, #{workout.steps}, #{workout.mechanics},s           
+              .main-box.mb-dull
+                .table-responsive
+                  table.table.table-striped.table-bordered.table-hover
+                    thead
+                      tr
+                        th ID #
+                        th Workout Name
+                        th Main Muscle
+                        th Detailed Muscle
+                        th Other Muscle
+                        th Type
+                        th Mechanics
+                        th Equipment
+                        th Difficulty
+                    tbody
+                      each workout in workouts
+                        tr
+                          td 
+                            a(href='/workout/' + workout._id ) #{workout._id}
+                          td #{workout.name}
+                          td #{workout.MMG}
+                          td #{workout.DMG}
+                          td #{workout.OMG}
+                          td #{workout.type}
+                          td #{workout.mechanics}
+                          td #{workout.equipment}
+                          td #{workout.difficulty}
+          
           // /. ROW
         // /. PAGE INNER
       // /. PAGE WRAPPER

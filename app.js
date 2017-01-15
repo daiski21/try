@@ -94,6 +94,16 @@ MongoClient.connect(mdbUrl, function(err, database) {
         });
     });
 
+    app.get('/updates', function(req, res) {
+        var updatesCollection = db.collection('workouts');
+        updatesCollection.find().toArray(function(err, updates) {
+           console.log('updates loaded', updates);
+          res.render('updates', {
+            updates: updates
+          });
+        })
+    });
+
     app.post('/updates', function(req, res) {
         console.log(req.body);
         var dataToSave = {
