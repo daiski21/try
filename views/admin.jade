@@ -1,7 +1,7 @@
 extends layout
 
 block content 
-    #wrapper
+  #wrapper
       nav.navbar.navbar-default.navbar-cls-top(role='navigation', style='margin-bottom: 0')
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-collapse')
@@ -24,7 +24,7 @@ block content
         .sidebar-collapse
           ul#main-menu.nav
             li
-              a.active-menu(href='/admin')
+              a.active-menu-top(href='/admin')
                 i.fa.fa-dashboard
                 | Dashboard
             li
@@ -32,7 +32,7 @@ block content
                 i.fa.fa-yelp
                 | Pages 
                 span.fa.arrow
-              ul.nav.nav-second-level
+              ul.nav.nav-second-level.collapse.in
                 li
                   a(href='/workouts')
                     i.fa.fa-coffee
@@ -52,7 +52,41 @@ block content
             .col-md-12
               h1.page-head-line DASHBOARD
               h1.page-subhead-line This is dummy text , you can replace it with your original text. 
+          .row
+            .col-md-12
+              h1 Update Workout
+              form(method="POST", action="/updates")
+                p
+                  input.form-control(type="text", placeholder="Name", name="workout_name")
+                p
+                  input.form-control(type="text", placeholder="Youtube Link", name="youtube_link")
+                p
+                  textarea.form-control(placeholder="Steps", name="steps")
+                P 
+                  input.form-control(type="text", placeholder="Main Muscle Group", name="MMG")  
+                P
+                  input.form-control(type="text", placeholder="Detailed Muscle Group", name="DMG")
+                P
+                  input.form-control(type="text", placeholder="Other Muscle Group", name="OMG")
+                P
+                  input.form-control(type="text", placeholder="Type", name="typetype")
+                P
+                  input.form-control(type="text", placeholder="Mechanics", name="mechanics")
+                P
+                  input.form-control(type="text", placeholder="Equipment", name="equipment")
+                P
+                  input.form-control(type="text", placeholder="Difficulty", name="difficulty")        
+                button(type="submit") Submit
+
+               h1 Delete Workout
+              form(method="POST", action="/delete")
+                p
+                  input(type="text", placeholder="Id", name="id") 
+                button(type="submit") Delete
+          
+          
           // /. ROW
         // /. PAGE INNER
       // /. PAGE WRAPPER
     // /. WRAPPER
+  
