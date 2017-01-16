@@ -36,11 +36,11 @@ block content
                 li
                   a(href='/workouts')
                     i.fa.fa-coffee
-                    | Add Data
+                    | Data Table
                 li
                   a.active-menu(href='/updates')
                     i.fa.fa-flash
-                    | Data Table
+                    | Add Data
             li
               a(href='/gallery')
                 i.fa.fa-flash
@@ -50,42 +50,44 @@ block content
         #page-inner
           .row
             .col-md-12
-              h1.page-head-line DASHBOARD
-              h1.page-subhead-line This is dummy text , you can replace it with your original text. 
+              h1.page-head-line Create
+              h1.page-subhead-line 
           .row
-            .col-md-12
-              .main-box.mb-dull
-                .table-responsive
-                  table.table.table-striped.table-bordered.table-hover
-                    thead
-                      tr
-                        th ID #
-                        th Workout Name
-                        th Main Muscle
-                        th Detailed Muscle
-                        th Other Muscle
-                        th Type
-                        th Mechanics
-                        th Equipment
-                        th Difficulty
-                    tbody
-                      each updates, i in workouts
-                        tr
-                          td #{updates._id}
-                          td = {workout.name}
-                          td = {workout.MMG}
-                          td = {workout.DMG}
-                          td = {workout.OMG}
-                          td = {workout.type}
-                          td = {workout.mechanics}
-                          td = {workout.equipment}
-                          td = {workout.difficulty}
+            .col-md-2
+            .col-md-8
+              .main-box.mb-red
+                h1 New Workout
+                form(method="POST", action="/workouts")
+                  p
+                    input.form-control(type="text", placeholder="Name", name="workout_name")
+                  P
+                    input.form-control(type="text", placeholder="Image Link", name="image")  
+                  p
+                    input.form-control(type="text", placeholder="Youtube Link", name="youtube_link")
+                  p
+                    textarea.form-control(placeholder="Steps", name="steps")
+                  P 
+                    input.form-control(type="text", placeholder="Main Muscle Group", name="MMG")  
+                  P
+                    input.form-control(type="text", placeholder="Detailed Muscle Group", name="DMG")
+                  P
+                    input.form-control(type="text", placeholder="Other Muscle Group", name="OMG")
+                  P
+                    input.form-control(type="text", placeholder="Type", name="typetype")
+                  P
+                    input.form-control(type="text", placeholder="Mechanics", name="mechanics")
+                  P
+                    input.form-control(type="text", placeholder="Equipment", name="equipment")
+                  P
+                    input.form-control(type="text", placeholder="Difficulty", name="difficulty") 
+                  P
+                    input.form-control(type="text", placeholder="Date Modified:mo/day/yr", name="date")          
+                  button(type="submit") Submit
+         
           
           // /. ROW
         // /. PAGE INNER
       // /. PAGE WRAPPER
     // /. WRAPPER
 
-  
 
- 

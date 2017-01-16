@@ -9,7 +9,6 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 var updates = require('./routes/updates');
-var gallery = require('./routes/gallery');
 
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
@@ -44,7 +43,6 @@ MongoClient.connect(mdbUrl, function(err, database) {
     app.use('/', index);
     app.use('/admin', admin);
     app.use('/updates', updates);
-    app.use('/gallery', gallery);
 
     app.get('/workouts', function(req, res) {
         var workoutsCollection = db.collection('workouts');
@@ -56,15 +54,7 @@ MongoClient.connect(mdbUrl, function(err, database) {
         })
     });
 
-    app.get('/updates', function(req, res) {
-        var workoutsCollection = db.collection('workouts');
-        workoutsCollection.find().toArray(function(err, workouts) {
-           console.log('workouts loaded', workouts);
-          res.render('workouts', {
-            workouts: workouts
-          });
-        })
-    });
+  
 
     app.post('/workouts', function(req, res) {
         console.log(req.body);
@@ -79,7 +69,8 @@ MongoClient.connect(mdbUrl, function(err, database) {
             mechanics: req.body.mechanics,
             equipment: req.body.equipment,
             difficulty: req.body.difficulty,
-            
+            image: req.body.image,
+            date: req.body.date,
         };
         db.collection('workouts')
           .save(dataToSave, function(err, workout) {
@@ -115,6 +106,8 @@ MongoClient.connect(mdbUrl, function(err, database) {
             mechanics: req.body.mechanics,
             equipment: req.body.equipment,
             difficulty: req.body.difficulty,
+            image: req.body.image,
+            date: req.body.date,
             
         };
         var id = req.body.id;

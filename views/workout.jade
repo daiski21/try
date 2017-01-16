@@ -1,8 +1,125 @@
-extends layout
-
-block content
-  h1 Workout Page
-  p First Name: #{workout.first_name}
-  p Last Name: #{workout.last_name}
-  p Email: #{workout.email}
-  p Contact: #{workout.contact}
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Triceps: Band Back Fly
+    // Bootstrap Core CSS
+    link(href='../stylesheets/bootstrap.min.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='../stylesheets/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    // Theme CSS
+    link(href='../stylesheets/grayscale.min.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#page-top(data-spy='scroll', data-target='.navbar-fixed-top')
+    // Navigation
+    nav.navbar.navbar-custom.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-main-collapse')
+            | Menu 
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll(href='#page-top')
+            i.fa.fa-play-circle
+            span.light Skinny
+            |  Genes
+        // Collect the nav links, forms, and other content for toggling
+        .collapse.navbar-collapse.navbar-right.navbar-main-collapse
+          ul.nav.navbar-nav
+            // Hidden li included to remove active class from about link when scrolled up past about section
+            li.hidden
+              a(href='#page-top')
+            li
+              a(href='/') Home
+            li
+              a.page-scroll(href='#contact') Contact
+        // /.navbar-collapse
+      // /.container
+    // Intro Header
+    header.intro
+      .intro-body
+        .container
+          .row
+            .col-md-8.col-md-offset-2
+              h1.brand-heading
+                | #{workout.MMG} : 
+                br
+                | #{workout.name}
+              p.intro-text By Skinny Genes
+              a.btn.btn-circle.page-scroll(href='#about')
+                i.fa.fa-angle-double-down.animated
+    // About Section
+    section#about.container.content-section.text-center
+      .row
+        .col-lg-8.col-lg-offset-2
+          h2 #{workout.name}
+          div(align='text-center')
+            p
+              | Main Muscle Group : #{workout.MMG}
+              br
+              | Detailed Muscle Group : #{workout.DMG}
+              br
+              | Other Muscle Groups : #{workout.OMG}
+              br
+              | Type : #{workout.type}
+              br
+              | Mechanics : #{workout.mechanics}
+              br
+              | Equipent : #{workout.equipment}
+              br
+              | Difficulty : #{workout.difficulty}
+              br
+              | #{workout.link}
+          div
+            h3 Steps:
+            p
+              #{workout.steps}
+            h3 Tips :
+            p
+              br
+              |  1.) Make sure that you are able to use a #{workout.equipment} that you are able to perform the exercise with.
+            br
+            img.img-responsive(src='#{workout.image}', alt='image', style="width:px;height:380px;")
+    // Contact Section
+    section#contact.container.content-section.text-center
+      .row
+        .col-lg-8.col-lg-offset-2
+          h2 Contact Team 14
+          p
+            | Feel free to email us to provide some feedback on our workout database, give us suggestions, or to just say hello!
+          p
+            a(href='mailto:feedback@startbootstrap.com') feedback@startbootstrap.com
+          ul.list-inline.banner-social-buttons
+            li
+              a.btn.btn-default.btn-lg(href='https://twitter.com/SBootstrap')
+                i.fa.fa-twitter.fa-fw
+                span.network-name Twitter
+            li
+              a.btn.btn-default.btn-lg(href='https://github.com/IronSummitMedia/startbootstrap')
+                i.fa.fa-github.fa-fw
+                span.network-name Github
+            li
+              a.btn.btn-default.btn-lg(href='https://plus.google.com/+Startbootstrap/posts')
+                i.fa.fa-google-plus.fa-fw
+                span.network-name Google+
+    // Footer
+    footer
+      .container.text-center
+        p Copyright © Skinny Genes 2017 by Team 14
+    // jQuery
+    script(src='../javascripts/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='../javascripts/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+    // Theme JavaScript
+    script(src='../javascripts/grayscale.min.js')

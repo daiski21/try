@@ -36,11 +36,11 @@ block content
                 li
                   a(href='/workouts')
                     i.fa.fa-coffee
-                    | Add Data
+                    | Data Table
                 li
                   a(href='/updates')
                     i.fa.fa-flash
-                    | Data Table
+                    | Add Data
             li
               a(href='/gallery')
                 i.fa.fa-flash
@@ -50,14 +50,18 @@ block content
         #page-inner
           .row
             .col-md-12
-              h1.page-head-line DASHBOARD
-              h1.page-subhead-line This is dummy text , you can replace it with your original text. 
+              h1.page-head-line Update/Delete
+              h1.page-subhead-line 
           .row
             .col-md-12
               h1 Update Workout
               form(method="POST", action="/updates")
                 p
+                  input.form-control(type="text", placeholder="Id", name="id") 
+                P
                   input.form-control(type="text", placeholder="Name", name="workout_name")
+                P
+                  input.form-control(type="text", placeholder="Image Link", name="image")
                 p
                   input.form-control(type="text", placeholder="Youtube Link", name="youtube_link")
                 p
@@ -75,13 +79,16 @@ block content
                 P
                   input.form-control(type="text", placeholder="Equipment", name="equipment")
                 P
-                  input.form-control(type="text", placeholder="Difficulty", name="difficulty")        
+                  input.form-control(type="text", placeholder="Difficulty", name="difficulty")
+                P
+                  input.form-control(type="text", placeholder="Date:mo/day/yr", name="date")       
+
                 button(type="submit") Submit
 
                h1 Delete Workout
               form(method="POST", action="/delete")
                 p
-                  input(type="text", placeholder="Id", name="id") 
+                  input.form-control(type="text", placeholder="Id", name="id") 
                 button(type="submit") Delete
           
           
