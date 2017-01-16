@@ -56,17 +56,15 @@ MongoClient.connect(mdbUrl, function(err, database) {
         })
     });
 
-    app.get('/uptates', function(req, res) {
-        var updatesCollection = db.collection('workouts');
-        updatesCollection.find().toArray(function(err, updates) {
-           console.log('updates loaded', updates);
-          res.render('updates', {
-            updates: updates
+    app.get('/updates', function(req, res) {
+        var workoutsCollection = db.collection('workouts');
+        workoutsCollection.find().toArray(function(err, workouts) {
+           console.log('workouts loaded', workouts);
+          res.render('workouts', {
+            workouts: workouts
           });
         })
     });
-
-   
 
     app.post('/workouts', function(req, res) {
         console.log(req.body);
@@ -102,16 +100,6 @@ MongoClient.connect(mdbUrl, function(err, database) {
                 workout: workout
             });
         });
-    });
-
-    app.get('/updates', function(req, res) {
-        var updatesCollection = db.collection('workouts');
-        updatesCollection.find().toArray(function(err, updates) {
-           console.log('updates loaded', updates);
-          res.render('updates', {
-            updates: updates
-          });
-        })
     });
 
     app.post('/updates', function(req, res) {

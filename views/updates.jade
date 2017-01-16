@@ -69,18 +69,17 @@ block content
                         th Equipment
                         th Difficulty
                     tbody
-                      each workout in workouts
+                      each workout, i in workouts
                         tr
-                          td 
-                            a(href='/workout/' + workout._id ) #{workout._id}
-                          td #{workout.name}
-                          td #{workout.MMG}
-                          td #{workout.DMG}
-                          td #{workout.OMG}
-                          td #{workout.type}
-                          td #{workout.mechanics}
-                          td #{workout.equipment}
-                          td #{workout.difficulty}
+                          td updates._id}
+                          td = {workout.name}
+                          td = {workout.MMG}
+                          td = {workout.DMG}
+                          td = {workout.OMG}
+                          td = {workout.type}
+                          td = {workout.mechanics}
+                          td = {workout.equipment}
+                          td = {workout.difficulty}
           
           // /. ROW
         // /. PAGE INNER
