@@ -93,6 +93,16 @@ MongoClient.connect(mdbUrl, function(err, database) {
         });
     });
 
+     app.get('/admin/:workoutId', function(req, res) {
+        var workoutId = req.params.workoutId;
+        var workoutCollection = db.collection('workouts');
+        workoutCollection.findOne({ _id: new ObjectId(workoutId) }, function(err, workout) {
+            res.render('admnin', {
+                admin: admin
+            });
+        });
+    });
+
     app.post('/updates', function(req, res) {
         console.log(req.body);
         var dataToSave = {
